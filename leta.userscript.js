@@ -13,7 +13,7 @@
 (function () {
     "use strict";
 
-    const cssUrl = 'https://raw.githubusercontent.com/user/repo/branch/file.css)';
+    const cssUrl = 'https://raw.githubusercontent.com/steven-ahfu/leta-mullvad-dark-theme/refs/heads/main/leta-dark-theme.css';
 
     fetch(cssUrl)
         .then(res => res.text())
