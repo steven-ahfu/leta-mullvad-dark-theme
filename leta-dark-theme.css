@@ -1,284 +1,367 @@
 /* ==UserStyle==
 @name           Mullvad Leta Dark Theme
 @namespace      github.com/openstyles/stylus
-@version        1.0.1
+@version        1.0.4
 @description    Mullvad Leta dark theme inspired by duckduckgo
 @author         ahfuerdena
-@date           2025-05-13
 ==/UserStyle== */
-
 @-moz-document domain("leta.mullvad.net") {
-  /* ---------- 1. Base palette (from good‑style dark theme) ---------- */
-  :root {
-    --side-margin: 10rem;
-    --bg-page: #1c1c1c;
-    --max-width: calc(100vw - (2 * var(--side-margin))) !important;
-    --blue: #202124;
-    --blue-dark: #1c1c1c;
-    /* page background */
-    /*:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}*/
-    --bg-card: #282828;
-    /* card / result background */
-    /*:contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}*/
-    --bg-card-hover: #333333;
-    /* card hover highlight      */
-    --fg-1: #eeeeee;
-    /* primary text              */
-    --fg-2: #cccccc;
-    /* secondary text            */
-    --fg-3: #666666;
-    /* tertiary / muted text     */
-    --ac-1: #adc2fc;
-    /* link color                */
-    /*:contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}*/
-    --ac-1-visited: #a591dc;
-    /* visited link              */
-    /*:contentReference[oaicite:6]{index=6}:contentReference[oaicite:7]{index=7}*/
-    --br-1: #333333;
-    /* subtle borders            */
-    --radius: 8px;
-    --shadow: 0 1px 3px rgba(0, 0, 0, .4);
-    --font-family: 'Segoe UI', "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    --font-body: "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  }
+    /* ---------- 1. Base palette ---------- */
+    :root {
+        --side-margin: 10rem;
+        --bg-page: #202124 !important;
+        /* update the variable */
+        --max-width: calc(100vw - (2 * var(--side-margin))) !important;
+        --blue: #202124;
+        --blue-dark: #202124 !important;
+        /* page background */
+        /*:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}*/
+        --bg-card: #282828;
+        /* card / result background */
+        /*:contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}*/
+        --bg-card-hover: #333333;
+        /* card hover highlight      */
+        --fg-1: #eeeeee;
+        /* primary text              */
+        --fg-2: #cccccc;
+        /* secondary text            */
+        --fg-3: #666666;
+        /* tertiary / muted text     */
+        --ac-1: #adc2fc;
+        /* link color                */
+        /*:contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}*/
+        --ac-1-visited: #a591dc;
+        /* visited link              */
+        /*:contentReference[oaicite:6]{index=6}:contentReference[oaicite:7]{index=7}*/
+        --br-1: #333333;
+        /* subtle borders            */
+        --radius: 8px;
+        --shadow: 0 1px 3px rgba(0, 0, 0, .4);
+        --font-family: 'Segoe UI', "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --font-body: "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
 
-  main {
-    --max-width: calc(100vw - (2 * var(--side-margin))) !important;
-    --side-margin: 10rem;
-  }
+    main {
+        --max-width: calc(100vw - (2 * var(--side-margin))) !important;
+        --side-margin: 10rem;
+    }
 
-  /* ---------- 2. Global reset ---------- */
-  html,
-  body {
-    background: var(--bg-page)!important;
-    color: var(--fg-1)!important;
-    font-family: var(--font-body)!important;
-  }
-  a {
-    color: var(--ac-1)!important;
-    text-decoration: none;
-  }
-  a:visited {
-    color: var(--ac-1-visited)!important;
-  }
-  a:hover {
-    opacity: .85;
-  }
-  input,
-  select,
-  textarea {
-    background: var(--bg-card);
-    color: var(--fg-1);
-    border: 1px solid var(--br-1);
-    border-radius: var(--radius);
-  }
+    /* ---------- 2. I just start going off down here fam ---------- */
+    html,
+    body {
+        background: #202124 !important;
+        /* make sure nothing overrides it */
+        color: var(--fg-1)!important;
+        font-family: var(--font-body)!important;
+    }
+    a {
+        color: var(--ac-1)!important;
+        text-decoration: none;
+    }
+    a:visited {
+        color: var(--ac-1-visited)!important;
+    }
+    a:hover {
+        opacity: .85;
+    }
+    input,
+    select,
+    textarea {
+        background: var(--bg-card);
+        color: var(--fg-1);
+        border: 1px solid var(--br-1);
+        border-radius: var(--radius);
+    }
 
-  /* ---------- 3. Header / navbar ---------- */
-  header,
-  nav,
-  .navbar,
-  .search-bar,
-  .searchform,
-  .search_wrapper {
-    background: var(--blue)!important;
-    border-bottom: 1px solid var(--br-1)!important;
-  }
-  button,
-  .btn {
-    background: var(--bg-card);
-    color: var(--fg-1);
-    border: 1px solid var(--br-1);
-    border-radius: var(--radius);
-  }
-  button:hover {
-    background: var(--bg-card-hover);
-  }
+    /* ---------- 3. Header / navbar ---------- */
+    header,
+    nav,
+    .navbar,
+    .search-bar,
+    .searchform,
+    .search_wrapper {
+        background: var(--blue)!important;
+        border-bottom: 1px solid var(--br-1)!important;
+    }
+    button,
+    .btn {
+        background: var(--bg-card);
+        color: var(--fg-1);
+        border: 1px solid var(--br-1);
+        border-radius: var(--radius);
+    }
+    button:hover {
+        background: var(--bg-card-hover);
+    }
 
-  main {
-    max-width: calc(100vw - (2 * var(--side-margin))) !important;
-  }
-
-
-  /* ---------- 4. Search results ---------- */
-  /* Each result is an <article> with hashed “svelte‑…” class names */
-  article[class*="svelte"] {
-    background: var(--blue);
-
-    border-radius: var(--radius);
-
-    padding: 8px 14px;
-    margin: 0 0 12px;
-    margin-bottom: 0.3rem;
-    font-family: 'Segoe UI', "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  }
-
-  cite[class*="svelte"] {
-    font-size: 12px !important;
-  }
-
-  div[class*="icon-wrapper"] {
-    height: 1.7rem !important;
-    width: 1.7rem !important;
-    opacity: 90%
-  }
-
-  article[class*="svelte"] p[class*="result__body"] {
-    margin-top: 0.1rem;
-    font-size: 0.8rem;
-  }
-
-  article[class*="svelte"] div[class*="result__header"] {
-    font-size: 0.9rem;
-  }
-
-  article[class*="svelte"] h3 {
-    font-size: 0.9rem;
-  }
-
-  article[class*="svelte"]:hover {
-    box-shadow: var(--shadow);
-  }
-
-  nav[class*="svelte"] {
-    display: none;
-  }
-
-  div.header {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    position: relative;
-    /* needed for the pseudo‑element */
-    align-items: center;
-    /* vertical‑centers children */
-  }
-
-  div.header::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100vw;
-    /* full viewport width */
-    transform: translateX(-50%);
-    /* center it */
-    border-bottom: 1px solid var(--br-1) !important;
-    pointer-events: none;
-    background-color: var(--blue)
-  }
-
-  div.header button,
-  div.wrapper button,
-  div.header button:hover,
-  div.wrapper button:hover {
-    border: none;
-    border-radius: unset;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: transparent !important
-  }
-
-  div.header button[type="button"],
-  div.wrapper button[type="button"] {
-    top: 50%;
-    /* halfway down the header */
-    transform: translateY(-50%);
-    /* bring its own height up */
-    border-right: 1px solid var(--br-1);
-    height: 1.5em;
-    font-size: 1.7em;
-  }
-
-  div.header button[type="submit"] {
-    border-radius: 0 25px 25px 0;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  input#search {
-    position: relative;
-    height: 46px;
-    padding-left: 20px;
-    top: 50%;
-    /* halfway down the header */
-    transform: translateY(-50%);
-    /* bring its own height up */
-  }
-
-  div.header form a[class*="svelte"] {
-    height: 46px;
-    width: 46px;
-    position: fixed;
-    left: calc(var(--side-margin) / 2);
-    transform: translateX(-50%);
-  }
-
-  div.header form a[class*="svelte"] img {
-    height: 46px;
-    width: 46px;
-  }
+    main {
+        max-width: calc(100vw - (2 * var(--side-margin))) !important;
+    }
 
 
-  div#results {
-    width: calc(100vw - 272px);
-  }
+    /* ---------- 4. Search results ---------- */
+    /* Each result is an <article> with hashed “svelte‑…” class names */
+    article[class*="svelte"] {
+        background: var(--blue);
 
-  .results,
-  #results {
-    max-width: calc(100vw - 272px) !important;
-    width: calc(100vw - 272px);
-  }
-  article[class*="svelte"]:hover {
-    background: var(--bg-card-hover);
-  }
-  /* Title */
-  .result__header-wrapper h3,
-  .result__header h3,
-  h3[class*="svelte"] {
-    color: var(--ac-1)!important;
-    font-size: .9rem;
-    margin: 0 0 4px;
-    font-weight: 400;
-  }
+        border-radius: var(--radius);
 
-  div.result__header {
-    font-size: 1rem;
-  }
-  /* URL line */
-  cite,
-  .result__header cite {
-    color: var(--fg-3)!important;
-    font-size: .75rem;
-  }
-  /* Snippet / body */
-  .result__body,
-  p.result__body,
-  article[class*="svelte"] p {
-    color: var(--fg-2);
-    font-size: .9rem;
-    line-height: 1.4;
-  }
+        padding: 8px 14px;
+        margin: 0 0 12px;
+        margin-bottom: 0.3rem;
+        font-family: 'Segoe UI', "DDG_ProximaNova", "DDG_ProximaNova_UI_0", "DDG_ProximaNova_UI_1", "DDG_ProximaNova_UI_2", "DDG_ProximaNova_UI_3", "DDG_ProximaNova_UI_4", "DDG_ProximaNova_UI_5", "DDG_ProximaNova_UI_6", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
 
-  /* ---------- 5. Misc layout tweaks ---------- */
-  .results,
-  #results {
-    max-width: 800px;
-    /* mimic “set‑wide” layout */
-    /*:contentReference[oaicite:8]{index=8}:contentReference[oaicite:9]{index=9}*/
-    margin: 24px auto!important;
-  }
-  .icon-wrapper img {
-    border-radius: var(--radius);
-  }
-  footer {
-    display: none;
-  }
-  /* hides empty footer on Leta */
-  /* ---------- 6. Hide Mullvad infobox / ads (optional) ---------- */
-  .infobox,
-  .ad,
-  [class*="sponsored"] {
-    display: none!important;
-  }
-  /* end moz‑document */
+    cite[class*="svelte"] {
+        font-size: 12px !important;
+    }
+
+    div[class*="icon-wrapper"] {
+        height: 1.7rem !important;
+        width: 1.7rem !important;
+        opacity: 90%
+    }
+
+    article[class*="svelte"] p[class*="result__body"] {
+        margin-top: 0.1rem;
+        font-size: 0.8rem;
+    }
+
+    article[class*="svelte"] div[class*="result__header"] {
+        font-size: 0.9rem;
+    }
+
+    article[class*="svelte"] h3 {
+        font-size: 0.9rem;
+    }
+
+    article[class*="svelte"]:hover {
+        box-shadow: var(--shadow);
+    }
+
+    nav[class*="svelte"] {
+        display: none;
+    }
+
+    div.header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        position: relative;
+        /* needed for the pseudo‑element */
+        align-items: center;
+        /* vertical‑centers children */
+    }
+
+    div.header::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 100vw;
+        /* full viewport width */
+        transform: translateX(-50%);
+        /* center it */
+        border-bottom: 1px solid var(--br-1) !important;
+        pointer-events: none;
+        background-color: var(--blue)
+    }
+
+    div.header button,
+    div.wrapper button,
+    div.header button:hover,
+    div.wrapper button:hover {
+        border: none;
+        border-radius: unset;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: transparent !important
+    }
+
+    div.wrapper {
+        background: #282828 !important;
+    }
+
+    div.header button[type="button"],
+    div.wrapper button[type="button"] {
+        top: 50%;
+        /* halfway down the header */
+        transform: translateY(-50%);
+        /* bring its own height up */
+        border-right: 1px solid var(--br-1);
+        height: 1.5em;
+        font-size: 1.7em;
+    }
+
+    div.header button[type="submit"] {
+        border-radius: 0 25px 25px 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    input#search {
+        position: relative;
+        height: 46px;
+        padding-left: 20px;
+        top: 50%;
+        /* halfway down the header */
+        transform: translateY(-50%);
+        /* bring its own height up */
+    }
+
+    div.header form a[class*="svelte"] {
+        height: 46px;
+        width: 46px;
+        position: fixed;
+        left: calc(var(--side-margin) / 2);
+        transform: translateX(-50%);
+    }
+
+    div.header form a[class*="svelte"] img {
+        height: 46px;
+        width: 46px;
+    }
+
+
+    div#results {
+        width: calc(100vw - 272px);
+    }
+
+    .results,
+    #results {
+        max-width: calc(100vw - 272px) !important;
+        width: calc(100vw - 272px);
+    }
+    article[class*="svelte"]:hover {
+        background: var(--bg-card-hover);
+    }
+    /* Title */
+    .result__header-wrapper h3,
+    .result__header h3,
+    h3[class*="svelte"] {
+        color: var(--ac-1)!important;
+        font-size: .9rem;
+        margin: 0 0 4px;
+        font-weight: 400;
+    }
+
+    div.result__header {
+        font-size: 1rem;
+    }
+    /* URL line */
+    cite,
+    .result__header cite {
+        color: var(--fg-3)!important;
+        font-size: .75rem;
+    }
+    /* Snippet / body */
+    .result__body,
+    p.result__body,
+    article[class*="svelte"] p {
+        color: var(--fg-2);
+        font-size: .9rem;
+        line-height: 1.4;
+    }
+
+    /* ---------- 5. Misc layout tweaks ---------- */
+    .results,
+    #results {
+        max-width: 800px;
+        /* mimic “set‑wide” layout */
+        /*:contentReference[oaicite:8]{index=8}:contentReference[oaicite:9]{index=9}*/
+        margin: 24px auto!important;
+    }
+    .icon-wrapper img {
+        border-radius: var(--radius);
+    }
+    footer {
+        display: none;
+    }
+    /* hides empty footer on Leta */
+    /* ---------- 6. Hide Mullvad infobox / ads ---------- */
+    .infobox,
+    .ad,
+    [class*="sponsored"] {
+        display: none!important;
+    }
+
+    /* Make results wider on phones / small screens */
+    @media (max-width: 768px) {
+        /* let the results container fill the screen */
+        #results,
+        .results {
+            width: 80vw !important;
+            max-width: 80vw !important;
+            margin: 0 auto !important;
+        }
+        svelte-css-wrapper {
+            --select-height: 25px;
+        }
+
+        main {
+            --side-margin: 1rem;
+            max-width: calc(100vw - 2rem) !important;
+        }
+
+        input#search {
+            position: relative;
+            height: 20px;
+            font-size: 12px;
+            padding-left: 10px;
+            top: 50%;
+            /* halfway down the header */
+            transform: translateY(-50%);
+            /* bring its own height up */
+        }
+
+        div.wrapper {
+            width: 85% !important;
+            margin: 0 auto;
+            margin-top: 10px;
+            background: #282828 !important;
+        }
+        div.header form a[class*="svelte"] {
+            top: 1.1rem;
+            height: 30px;
+            width: 30px;
+            position: fixed;
+            left: 0.3rem;
+            /*             transform: translateX(10%); */
+            transform: translateY(50%);
+        }
+
+        div.header form a[class*="svelte"] img {
+            height: 30px;
+            width: 30px;
+        }
+        div.radio-group label {
+            font-size: 12px;
+        }
+
+        div.selected-item {
+            font-size: 12px !important;
+        }
+
+        div.svelte-select,
+        div.value-container {
+            max-width: 90px;
+            max-height: 25px !important;
+            margin-top: 0px !important;
+        }
+
+        input#country,
+        input#lastUpdated {
+            font-size: 12px;
+        }
+        article[class*="svelte"]:hover {
+            background: var(--bg-card-hover) !important;
+        }
+
+        div.select-wrapper {
+            margin-left: -20px;
+            max-height: 25px !important;
+            margin-top: 0px !important;
+        }
+    }
+    /* end moz‑document */
 }
